@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>static-hello</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+    }
+    .card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      max-width: 480px;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
+    p { font-size: 1.1rem; opacity: 0.9; line-height: 1.6; }
+    code { background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 4px; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>static-hello</h1>
+    <p>Plain HTML/CSS served by Aseva's static hosting.</p>
+    <p>Detected via <code>index.html</code> at the repo root.</p>
+  </div>
+</body>
+</html>
