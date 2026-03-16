@@ -8,7 +8,8 @@ Minimal sample applications for the [Aseva hosting platform](https://github.com/
 |-----------|-----------|-------------|
 | `node-hello` | Node.js + Express | HTTP server with `package.json` start script |
 | `node-static-build` | Node.js + Vite | Build step produces static `dist/` served by Express |
-| `python-hello` | Python + Flask | Minimal Flask app detected via `app.py` |
+| `python-hello` | Python (stdlib) | Minimal HTTP server detected via `app.py` |
+| `python-flask` | Python + Flask | Flask app with `requirements.txt` dependency install |
 | `static-hello` | Static HTML | Plain HTML/CSS/JS served automatically |
 
 ## How to deploy
@@ -29,5 +30,5 @@ All apps read the `PORT` environment variable (assigned by the platform) and bin
 ## Currently supported app types
 
 - **Node.js** -- Detected via `package.json`. Runs `npm install`, optional `npm run build`, then `npm start`.
-- **Python** -- Detected via `app.py`, `main.py`, or `manage.py`. Runs with `python3`.
+- **Python** -- Detected via `requirements.txt`, `Pipfile`, or `pyproject.toml` (installs deps); or via `app.py`, `main.py`, `manage.py` entry points. Runs with `python3`.
 - **Static HTML** -- Detected via `index.html` at root or in `public/`, `dist/`, `build/`. Served with `python3 -m http.server`.
