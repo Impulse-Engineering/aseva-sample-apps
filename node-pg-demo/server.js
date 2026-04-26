@@ -3,11 +3,15 @@ const { Pool } = require("pg");
 
 const PORT = parseInt(process.env.PORT || "3000", 10);
 
-// The platform writes DATABASE_URL as <APP_NAME_UPPER>_DATABASE_URL.
-// For this app ("node-pg-demo") it becomes NODE_PG_DEMO_DATABASE_URL.
-// We also check the generic DATABASE_URL as a fallback for local dev.
+// The platform writes DATABASE_URL as <APP_NAME_UPPER>_DATABASE_URL,
+// where APP_NAME_UPPER comes from the registered app name (not this repo dir).
+// Pick up whichever *_DATABASE_URL the platform injected, then fall back to
+// generic DATABASE_URL for local dev.
+const injectedDbUrlKey = Object.keys(process.env).find(
+  (k) => k.endsWith("_DATABASE_URL") && k !== "CONTROL_PLANE_DATABASE_URL"
+);
 const DATABASE_URL =
-  process.env.NODE_PG_DEMO_DATABASE_URL ||
+  (injectedDbUrlKey && process.env[injectedDbUrlKey]) ||
   process.env.DATABASE_URL ||
   "postgresql://localhost:5432/node_pg_demo";
 
@@ -76,6 +80,7 @@ migrate()
     });
   })
   .catch((err) => {
-    console.error("Migration failed:", err.message);
+    console.error("Migration failed:", err.message || err.code || String(err));
+    if (err.stack) console.error(err.stack);
     process.exit(1);
   });
