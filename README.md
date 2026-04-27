@@ -10,6 +10,7 @@ Minimal sample applications for the [Aseva hosting platform](https://github.com/
 | `node-static-build` | Node.js + Vite | Build step produces static `dist/` served by Express |
 | `python-hello` | Python (stdlib) | Minimal HTTP server detected via `app.py` |
 | `node-pg-demo` | Node.js + pg | Managed PostgreSQL demo (read/write visits table) |
+| `workers-d1-kv-demo` | Cloudflare Workers | Workers tier demo with managed D1 + KV (visits table + KV counter) |
 | `python-flask` | Python + Flask | Flask app with `requirements.txt` dependency install |
 | `static-hello` | Static HTML | Plain HTML/CSS/JS served automatically |
 

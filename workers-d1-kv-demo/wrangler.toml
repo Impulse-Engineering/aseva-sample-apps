@@ -1,0 +1,26 @@
+name = "workers-d1-kv-demo"
+main = "src/index.js"
+compatibility_date = "2025-03-20"
+compatibility_flags = ["nodejs_compat"]
+
+# account_id is injected by the Aseva deploy engine at deploy time via
+# CLOUDFLARE_ACCOUNT_ID. You can also hardcode it here for local `wrangler dev`.
+# account_id = "your-cloudflare-account-id"
+
+# D1 database -- the Aseva platform provisions this for Workers-tier apps.
+# After `platform_provision`, fetch the database_id from `platform_get_app`
+# (resource type `cf_d1_database`) and paste it below before deploying.
+[[d1_databases]]
+binding = "DB"
+database_name = "workers-d1-kv-demo-db"
+database_id = "REPLACE_WITH_PROVISIONED_D1_ID"
+migrations_dir = "migrations"
+
+# KV namespace -- also provisioned by the platform. Pull the namespace id from
+# `platform_get_app` (resource type `cf_kv_namespace`) and paste it below.
+[[kv_namespaces]]
+binding = "CACHE"
+id = "REPLACE_WITH_PROVISIONED_KV_ID"
+
+[vars]
+APP_VERSION = "0.0.1"
