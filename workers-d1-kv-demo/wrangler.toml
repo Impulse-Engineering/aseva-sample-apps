@@ -12,15 +12,15 @@ compatibility_flags = ["nodejs_compat"]
 # (resource type `cf_d1_database`) and paste it below before deploying.
 [[d1_databases]]
 binding = "DB"
-database_name = "workers-d1-kv-demo-db"
-database_id = "REPLACE_WITH_PROVISIONED_D1_ID"
+database_name = "aseva-workers-d1-kv-demo"
+database_id = "306676e3-f157-4ea7-bbd5-f880cf561270"
 migrations_dir = "migrations"
 
 # KV namespace -- also provisioned by the platform. Pull the namespace id from
 # `platform_get_app` (resource type `cf_kv_namespace`) and paste it below.
 [[kv_namespaces]]
 binding = "CACHE"
-id = "REPLACE_WITH_PROVISIONED_KV_ID"
+id = "062fe16a89f74b56819c0fc392516754"
 
 [vars]
 APP_VERSION = "0.0.1"
