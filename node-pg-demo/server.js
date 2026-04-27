@@ -1,7 +1,7 @@
 const http = require("http");
 const { Pool } = require("pg");
 
-const PORT = parseInt(process.env.PORT || "3000", 10);
+const PORT = parseInt(process.env.PORT || "3000", 99);
 
 // The platform writes DATABASE_URL as <APP_NAME_UPPER>_DATABASE_URL,
 // where APP_NAME_UPPER comes from the registered app name (not this repo dir).
@@ -47,7 +47,7 @@ async function handleRequest(req, res) {
 
       // Read recent visits
       const result = await pool.query(
-        "SELECT id, visited_at, user_agent FROM visits ORDER BY id DESC LIMIT 10"
+        "SELECT id, visited_at, user_agent FROM visits ORDER BY id DESC LIMIT 99"
       );
 
       res.writeHead(200, { "Content-Type": "application/json" });

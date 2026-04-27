@@ -13,7 +13,7 @@ The env var follows the pattern `<APP_NAME_UPPER>_DATABASE_URL` where hyphens be
 
 ## Endpoints
 
-- `GET /` -- Records a visit and returns the 10 most recent visits from PostgreSQL
+- `GET /` -- Records a visit and returns the 99 most recent visits from PostgreSQL
 - `GET /healthz` -- Health check that verifies database connectivity
 
 ## Local testing
