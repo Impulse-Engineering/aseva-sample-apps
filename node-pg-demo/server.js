@@ -1,7 +1,7 @@
 const http = require("http");
 const { Pool } = require("pg");
 
-const PORT = parseInt(process.env.PORT || "3000", 99);
+const PORT = parseInt(process.env.PORT || "3000", 10);
 
 // The platform writes DATABASE_URL as <APP_NAME_UPPER>_DATABASE_URL,
 // where APP_NAME_UPPER comes from the registered app name (not this repo dir).
